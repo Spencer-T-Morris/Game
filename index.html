@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        var start = prompt("would you like you play a game?"); 
+let health = 40; 
+var winner=""
+var roundsWon=0
+if (start == 'yes') {
+    alert("You have been challenged to a duel. You must now fight to the death with a giant chicken whose name is Grant the almighty, King of the chickens, ruler of the coop, master of the flightless");
+    var name = prompt("what is your name");
+    
+} else {
+}
+
+
+
+function round() {
+    var grantsHealth = 10
+    while (grantsHealth !== 0 || health !== 0){
+            grantsHealth = grantsHealth - Math.floor( Math.random() * 2 + 1)
+            health = health - Math.floor( Math.random() * 2 + 1)
+            console.log("grants health is " +grantsHealth)
+            console.log(name+"'s health is " + health)
+            if (grantsHealth === 0){
+                roundsWon= roundsWon +1
+                console.log(roundsWon)
+                round();
+                break;
+            } else if (health === 0){
+                winner = "grant"
+                console.log("the winner is "+winner+" Grant says GGEZ.")
+                break;
+            }else{
+                ;
+            }
+    }
+
+}
+
+function game(){
+    while (winner !== "grant" || winner !== name){
+        round();
+        if (roundsWon !== 3){
+            var winner = name;
+            console.log( winner+"You are the winner, you should hit Grant with that GGEZ")
+            break;
+        }else{
+          break;
+        }
+    }
+}
+
+game()
+
+        
+        <script src="script.js" async defer></script>
+    </body>
+</html>
